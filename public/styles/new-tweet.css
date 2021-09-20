@@ -40,3 +40,7 @@ textarea {
   height: 30px;
   width: 100%;
 }
+
+.exceed-limit {
+  color: red;
+}
