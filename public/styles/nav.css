@@ -24,7 +24,7 @@ nav {
   flex-direction: column;
 }
 
-.fas {
+.fa-angle-double-down {
   align-self: center;
   color: red;
 }
