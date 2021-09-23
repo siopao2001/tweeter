@@ -37,7 +37,7 @@ $(document).ready(function() {
       "content": {
         "text": "Test!"
       },
-      "created_at": 1461113959088
+      "created_at": 1573245023718
     }
   ]
 
@@ -53,7 +53,7 @@ $(document).ready(function() {
           </header>
           <p>${tweetObj.content.text}</p>
           <footer>
-            <p>${tweetObj["created_at"]}</p>
+            <p>${timeago.format(tweetObj["created_at"])}</p>
             <h4>PIN RETWEET HEART</h4>
           </footer>
           `;
