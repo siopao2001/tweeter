@@ -85,10 +85,10 @@ $('.new-tweet form').submit( function (event) {
     const $form = $(this);
 //     const tweet = $form.serialize()
 //     $.ajax({ url: "/tweets/", method: 'POST', data: tweet })
-    const tweetTxt = $form.children('textarea').val();
-    if (!tweetTxt) {
+    const tweetText = $form.children('textarea').val();
+    if (!tweetText) {
       alert("Your tweet cannot be empty");
-    } else if (tweetTxt.length > 140) {
+    } else if (tweetText.length > 140) {
       alert("You have exceeded 140 characters");
     } else {
       const tweet = $form.serialize();
