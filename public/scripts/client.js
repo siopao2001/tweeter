@@ -83,8 +83,18 @@ loadTweets()
 $('.new-tweet form').submit( function (event) {
     event.preventDefault();
     const $form = $(this);
-    const tweet = $form.serialize()
-    $.ajax({ url: "/tweets/", method: 'POST', data: tweet })
+//     const tweet = $form.serialize()
+//     $.ajax({ url: "/tweets/", method: 'POST', data: tweet })
+    const newTweetTextStr = $form.children('textarea').val();
+    if (!newTweetTextStr) {
+      alert("Your tweet cannot be empty");
+    } else if (newTweetTextStr.length > 140) {
+      alert("You have exceeded 140 characters");
+    } else {
+      const tweet = $form.serialize();
+      $.ajax({ url: "/tweets/", method: 'POST', data: tweet }) 
+    }
+    
   })
 
 
