@@ -62,14 +62,14 @@ $(document).ready(function() {
     return $tweet;
   };
 
-//   const renderTweets = function(tweetObjArr) {
-//     for (const tweet of tweetObjArr) {
-//       const $tweet = createTweetElement(tweet);
-//       $('section.all-tweets').append($tweet);
-//     }
-//   };
+  const renderTweets = function(tweetObjArr) {
+    for (const tweet of tweetObjArr) {
+      const $tweet = createTweetElement(tweet);
+      $('section.all-tweets').prepend($tweet);
+    }
+  };
 
-//   renderTweets(data);
+  //renderTweets(data);
 
 const loadTweets = function () {
     $.ajax('/tweets', { method: 'GET' })
@@ -93,8 +93,14 @@ $('.new-tweet form').submit( function (event) {
     } else {
       const tweet = $form.serialize();
       $.ajax({ url: "/tweets/", method: 'POST', data: tweet }) 
+      .then (function (postRequestReturnValue) {
+        return $.ajax('/tweets', { method: 'GET' })
+      })
+      .then (function (getRequestReturnValue) {
+        const latestTweet = [getRequestReturnValue[getRequestReturnValue.length - 1]];
+        renderTweets(latestTweet);
+      })
     }
-    
   })
 
 
