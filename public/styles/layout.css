@@ -30,3 +30,11 @@ main {
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
+
+@media (min-width: 850px) {
+  main{
+    margin: 120px 50px 50px 50px;
+    width: 50%;
+    float: right;
+  }
+}
