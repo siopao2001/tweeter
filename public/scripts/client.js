@@ -58,18 +58,14 @@ $(document).ready(function() {
     } else {
       $('.errorMessage').slideUp();
       const tweet = $form.serialize();
-      $.ajax({
-          url: "/tweets/",
-          method: 'POST',
-          data: tweet
+      $.ajax({url: "/tweets/",method: 'POST',data: tweet})
+        .then(function(postValue) {
+          return $.ajax('/tweets', {method: 'GET' })
         })
-        .then(function(postRequestReturnValue) {
-          return $.ajax('/tweets', {
-            method: 'GET'
-          })
-        })
-        .then(function(getRequestReturnValue) {
-          const latestTweet = [getRequestReturnValue[getRequestReturnValue.length - 1]];
+        .then(function(getValue) {
+          $form[0].reset();
+          $form.children('span').text(140);
+          const latestTweet = [getValue[getValue.length - 1]];
           renderTweets(latestTweet);
         })
     }
