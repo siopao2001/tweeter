@@ -43,6 +43,7 @@ article.tweet p {
   margin-left: 20px;
   margin-bottom: 20px; 
 }
+
 article.tweet p {
   overflow-wrap: anywhere; 
 }
