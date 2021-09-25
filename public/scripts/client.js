@@ -58,7 +58,7 @@ const escaper =  function(str) {
           <p>${escaper(tweetObj.content.text)}</p>
           <footer>
             <p>${timeago.format(tweetObj["created_at"])}</p>
-            <h4>PIN RETWEET HEART</h4>
+            <h4><i class="fas fa-flag"></i><i class="fas fa-retweet"></i><i class="fas fa-heart"></i></h4>
           </footer>
           `;
 
