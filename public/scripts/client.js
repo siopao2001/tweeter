@@ -40,7 +40,11 @@ $(document).ready(function() {
 //       "created_at": 1573245023718
 //     }
 //   ]
-
+const escaper =  function(str) {
+    let tweet = document.createElement('div');
+    tweet.appendChild(document.createTextNode(str));
+    return tweet.innerHTML;
+  }
 
   const createTweetElement = function(tweetObj) {
     const $tweet = $("<article>").addClass("tweet");
@@ -51,7 +55,7 @@ $(document).ready(function() {
               <h4>${tweetObj.user.name}</h4>
               <p>${tweetObj.user.handle}</p>
           </header>
-          <p>${tweetObj.content.text}</p>
+          <p>${escaper(tweetObj.content.text)}</p>
           <footer>
             <p>${timeago.format(tweetObj["created_at"])}</p>
             <h4>PIN RETWEET HEART</h4>
