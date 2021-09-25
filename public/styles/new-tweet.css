@@ -46,6 +46,9 @@ textarea {
 }
 
 .errorMessage {
-  border: 1px solid red
-  
+  padding: 15px;
+  color: red;
+  border-radius: 25px;
+  display: none;
+  text-align: center;
 }
