@@ -64,7 +64,7 @@ $(document).ready(function() {
         })
         .then(function(getValue) {
           $form[0].reset();
-          $form.children('span').text(140);
+          $('.counter').text(140)
           const latestTweet = [getValue[getValue.length - 1]];
           renderTweets(latestTweet);
         })
